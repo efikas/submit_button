@@ -1,8 +1,10 @@
 name: submit_button
 description: Submit button with animation.
 version: 0.0.1
-author:
-homepage:
+repository: https://github.com/efikas/submit_button
+issue_tracker: https://github.com/efikas/submit_button/issues
+homepage: https://efikas.com.ng
+
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
