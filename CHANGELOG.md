@@ -5,3 +5,7 @@
 ## [0.0.2] - 25/09/2020
 
 * Changelog added
+
+## [0.0.3] - 25/09/2020
+
+* readme updated
