@@ -6,7 +6,7 @@ A new Flutter package project.
 
 Submit button with spinner animation. Written in Dart. Fully customizable.
 
-![Screenshot](https://raw.githubusercontent.com/aligorithm/assets/master/ezgif-3-faf66acba323.gif)
+![Screenshot](https://github.com/efikas/submit_button/blob/master/ezgif-7-04d64220d438.gif)
 ## Getting Started
 
 Add this to your package's `pubspec.yaml` file
