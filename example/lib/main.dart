@@ -1,33 +1,26 @@
-# submit_button
-
-A new Flutter package project.
-
-## Getting Started
-
-Submit button with spinner animation. Written in Dart. Fully customizable.
-
-![Screenshot](https://raw.githubusercontent.com/aligorithm/assets/master/ezgif-3-faf66acba323.gif)
-## Getting Started
-
-Add this to your package's `pubspec.yaml` file
-
-```yaml
-dependencies:
-  submit_button: ^0.0.1
-```
-
-## Usage
-
-Next, you just have to import the package using:
-
-```dart
+import 'package:flutter/material.dart';
 import 'package:submit_button/submit_button.dart';
-```
 
-Then wrap your body within a `Stack` and place the `EasyLoader()` widget at the end of the `Stack`
+void main() {
+  runApp(MyApp());
+}
 
-```dart
-  class MyHomePage extends StatefulWidget {
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
@@ -71,5 +64,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-```

@@ -2,13 +2,13 @@ import 'package:animator/animator.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class FormButton extends StatelessWidget {
+class SubmitButton extends StatelessWidget {
   bool isLoading;
   Widget button;
   Color spinnerColor;
   Color backgroundColor;
   double btnHorizontalPadding;
-  FormButton(
+  SubmitButton(
       {Key key,
         @required this.isLoading,
         @required this.button,
@@ -75,13 +75,13 @@ class FormButton extends StatelessWidget {
 }
 
 
-class FormButtonV2 extends StatelessWidget {
+class SubmitButtonV2 extends StatelessWidget {
   bool isLoading;
   Widget button;
   Color spinnerColor;
   Color borderColor;
   double btnHorizontalPadding;
-  FormButtonV2(
+  SubmitButtonV2(
       {Key key,
         @required this.isLoading,
         @required this.button,
