@@ -24,7 +24,7 @@ Next, you just have to import the package using:
 import 'package:submit_button/submit_button.dart';
 ```
 
-Then wrap your body within a `Stack` and place the `EasyLoader()` widget at the end of the `Stack`
+Then place the `SubmitButton()` widget at the widget tree
 
 ```dart
     class MyHomePage extends StatefulWidget {
