@@ -1,10 +1,10 @@
 # submit_button
 
-A new Flutter package project.
+A flutter animated button customization for forms and login/registration pages.
 
 ## Getting Started
 
-Submit button with spinner animation. Written in Dart. Fully customizable.
+A flutter animated button customization for forms and login/registration pages. Written in Dart. Fully customizable.
 
 ![Screenshot](https://github.com/efikas/submit_button/blob/master/ezgif-7-04d64220d438.gif)
 ## Getting Started
@@ -13,7 +13,7 @@ Add this to your package's `pubspec.yaml` file
 
 ```yaml
 dependencies:
-  submit_button: ^0.0.1
+  submit_button: ^0.0.4
 ```
 
 ## Usage

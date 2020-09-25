@@ -1,9 +1,9 @@
 name: submit_button
-description: Submit button with animation.
-version: 0.0.3
+description: A flutter animated button customization for forms and login/registration pages.
+version: 0.0.4
 repository: https://github.com/efikas/submit_button
 issue_tracker: https://github.com/efikas/submit_button/issues
-homepage: https://efikas.com.ng
+homepage: http://efikas.com.ng
 
 
 environment:
@@ -12,7 +12,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  animator: ^1.0.0+1
+  animator: ^2.0.1
 
 dev_dependencies:
   flutter_test:
@@ -23,9 +23,5 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
-  # To add assets to your package, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  uses-material-design: true
   

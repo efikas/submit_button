@@ -9,3 +9,7 @@
 ## [0.0.3] - 25/09/2020
 
 * readme updated
+
+## [0.0.4] - 25/09/2020
+
+* dependencies updated

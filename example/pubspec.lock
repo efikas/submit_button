@@ -7,7 +7,7 @@ packages:
       name: animator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0+5"
+    version: "2.0.1"
   async:
     dependency: transitive
     description:
@@ -120,7 +120,7 @@ packages:
       name: states_rebuilder
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.15.0"
+    version: "2.3.1"
   stream_channel:
     dependency: transitive
     description:
@@ -141,7 +141,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.3"
+    version: "0.0.4"
   term_glyph:
     dependency: transitive
     description:

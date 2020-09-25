@@ -3,18 +3,22 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class SubmitButton extends StatelessWidget {
+  /// the loading status of the button
   bool isLoading;
+  /// the button widget
   Widget button;
+  /// the color of the spinner, default is black
   Color spinnerColor;
+  /// the button background color, default is black color
   Color backgroundColor;
+  /// button horizontal padding, default is (size.width - 300) / 2
   double btnHorizontalPadding;
   SubmitButton(
       {Key key,
-        @required this.isLoading,
-        @required this.button,
-        this.spinnerColor,
-        this.backgroundColor
-      })
+      @required this.isLoading,
+      @required this.button,
+      this.spinnerColor,
+      this.backgroundColor})
       : assert(isLoading != null),
         assert(button != null),
         super(key: key);
@@ -26,22 +30,22 @@ class SubmitButton extends StatelessWidget {
     return Animator(
       duration: Duration(milliseconds: 300),
       cycles: 1,
-      builder: (anim) => Container(
+      builder: (context, animatorState, child) => Container(
         margin: EdgeInsets.symmetric(
-            horizontal: _buttonAnimate(anim.value), vertical: 24.0,
+          horizontal: _buttonAnimate(animatorState.value),
+          vertical: 24.0,
         ),
         child: Container(
           width: double.infinity,
           height: 50,
           decoration: BoxDecoration(
             color: backgroundColor ?? Colors.black87,
-            border:  Border.all(color: Colors.transparent),
+            border: Border.all(color: Colors.transparent),
             borderRadius: BorderRadius.all(
               Radius.circular(5.0),
             ),
           ),
-          child: Center(child: _buttonLabel(anim.value)),
-//          ),
+          child: Center(child: _buttonLabel(animatorState.value)),
         ),
       ),
     );
@@ -74,21 +78,26 @@ class SubmitButton extends StatelessWidget {
   }
 }
 
-
+// ignore: must_be_immutable
 class SubmitButtonV2 extends StatelessWidget {
+  /// the loading status of the button
   bool isLoading;
+  /// the button widget
   Widget button;
+  /// the color of the spinner, default is black
   Color spinnerColor;
+  /// the border color, default is black color
   Color borderColor;
+  /// button horizontal padding, default is (size.width - 300) / 2
   double btnHorizontalPadding;
+
   SubmitButtonV2(
       {Key key,
-        @required this.isLoading,
-        @required this.button,
-        this.spinnerColor,
-        this.btnHorizontalPadding,
-        this.borderColor
-      })
+      @required this.isLoading,
+      @required this.button,
+      this.spinnerColor,
+      this.btnHorizontalPadding,
+      this.borderColor})
       : assert(isLoading != null),
         assert(button != null),
         super(key: key);
@@ -100,19 +109,19 @@ class SubmitButtonV2 extends StatelessWidget {
     return Animator(
       duration: Duration(milliseconds: 300),
       cycles: 1,
-      builder: (anim) => Container(
+      builder: (context, animatorState, child) => Container(
         margin: EdgeInsets.symmetric(
-            horizontal: _buttonAnimate(anim.value), vertical: 0),
+            horizontal: _buttonAnimate(animatorState.value), vertical: 0),
         child: Container(
           width: double.infinity,
           height: 50,
           decoration: BoxDecoration(
-            border:  Border.all(color: borderColor ?? Colors.black87),
+            border: Border.all(color: borderColor ?? Colors.black87),
             borderRadius: BorderRadius.all(
               Radius.circular(20.0),
             ),
           ),
-          child: Center(child: _buttonLabel(anim.value)),
+          child: Center(child: _buttonLabel(animatorState.value)),
         ),
       ),
     );
@@ -136,7 +145,8 @@ class SubmitButtonV2 extends StatelessWidget {
         child: CircularProgressIndicator(
           backgroundColor: spinnerColor ?? Colors.black,
           strokeWidth: 2,
-          valueColor: new AlwaysStoppedAnimation<Color>(borderColor ?? Colors.white),
+          valueColor:
+              new AlwaysStoppedAnimation<Color>(borderColor ?? Colors.white),
         ),
       );
     } else {
