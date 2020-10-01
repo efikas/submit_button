@@ -51,16 +51,23 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-          child: Column(
-        children: [
-          SubmitButton(
-            isLoading: _loading,
-            spinnerColor: Colors.green,
-            backgroundColor: Colors.red,
-            button: FlatButton(onPressed: _submit, child: Text("Submit")),
-          ),
-        ],
-      )),
+        child: Column(
+          children: [
+            SubmitButton(
+              isLoading: _loading,
+              buttonType: SubmitButtonType.normal,
+              buttonProperties: NormalButton(
+                spinnerColor: Colors.green,
+                backgroundColor: Colors.red,
+                button: FlatButton(
+                  onPressed: _submit,
+                  child: Text("Submit"),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

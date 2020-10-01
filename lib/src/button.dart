@@ -1,156 +1,78 @@
-import 'package:animator/animator.dart';
 import 'package:flutter/material.dart';
+import 'package:submit_button/src/buttons/normal_button.dart';
+import 'package:submit_button/src/enum/buttonType.dart';
+import 'package:submit_button/src/models/elasticButtonModel.dart';
+import 'package:submit_button/src/models/normalButtonModel.dart';
+import 'package:submit_button/src/models/rollOverButtonModel.dart';
+import 'package:submit_button/src/models/slidingButtonModel.dart';
+import 'package:submit_button/src/models/splashAwayButtonModel.dart';
 
 // ignore: must_be_immutable
 class SubmitButton extends StatelessWidget {
   /// the loading status of the button
   bool isLoading;
-  /// the button widget
-  Widget button;
-  /// the color of the spinner, default is black
-  Color spinnerColor;
-  /// the button background color, default is black color
-  Color backgroundColor;
-  /// button horizontal padding, default is (size.width - 300) / 2
-  double btnHorizontalPadding;
-  SubmitButton(
-      {Key key,
+  /// the button type
+  SubmitButtonType buttonType;
+  /// the properties of the button
+  dynamic buttonProperties;
+  
+  SubmitButton({
+      Key key,
       @required this.isLoading,
-      @required this.button,
-      this.spinnerColor,
-      this.backgroundColor})
+      @required this.buttonType,
+      @required this.buttonProperties,
+    })
       : assert(isLoading != null),
-        assert(button != null),
+        assert(buttonType != null),
         super(key: key);
-  Size size;
+
+  /// Local properties
+  Size _size;
+  NormalButton _normalButtonModel = NormalButton();
+  ElasticButton _elasticButtonModel = ElasticButton();
+  RollOverButton _rollOverButtonModel = RollOverButton();
+  SlidingButton _slidingButtonModel = SlidingButton();
+  SlashAwayButton _splashAwayButtonModel = SlashAwayButton();
 
   @override
   Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
-    return Animator(
-      duration: Duration(milliseconds: 300),
-      cycles: 1,
-      builder: (context, animatorState, child) => Container(
-        margin: EdgeInsets.symmetric(
-          horizontal: _buttonAnimate(animatorState.value),
-          vertical: 24.0,
-        ),
-        child: Container(
-          width: double.infinity,
-          height: 50,
-          decoration: BoxDecoration(
-            color: backgroundColor ?? Colors.black87,
-            border: Border.all(color: Colors.transparent),
-            borderRadius: BorderRadius.all(
-              Radius.circular(5.0),
-            ),
-          ),
-          child: Center(child: _buttonLabel(animatorState.value)),
-        ),
-      ),
-    );
-  }
+    _size = MediaQuery.of(context).size;
+    _buttonPropertyNormalizer();
 
-  ///calculate the login button padding for animation
-  double _buttonAnimate(double tween) {
-    btnHorizontalPadding = btnHorizontalPadding ?? (size.width - 300) / 2;
-    if (isLoading == true) {
-      return btnHorizontalPadding + (80 * tween);
-    } else {
-      return btnHorizontalPadding;
-    }
-  }
-
-  Widget _buttonLabel(double tween) {
-    if (isLoading) {
-      return Container(
-        width: 20,
-        height: 20.0,
-        child: CircularProgressIndicator(
-          backgroundColor: spinnerColor ?? Colors.black,
-          strokeWidth: 2,
-          valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),
-        ),
+    if(buttonType == SubmitButtonType.normal) {
+      return NormalButtonWidget(
+        isLoading: isLoading, 
+        button: _normalButtonModel.button,
+        backgroundColor: _normalButtonModel.backgroundColor,
+        spinnerColor: _normalButtonModel.spinnerColor,
       );
-    } else {
-      return button;
     }
-  }
-}
-
-// ignore: must_be_immutable
-class SubmitButtonV2 extends StatelessWidget {
-  /// the loading status of the button
-  bool isLoading;
-  /// the button widget
-  Widget button;
-  /// the color of the spinner, default is black
-  Color spinnerColor;
-  /// the border color, default is black color
-  Color borderColor;
-  /// button horizontal padding, default is (size.width - 300) / 2
-  double btnHorizontalPadding;
-
-  SubmitButtonV2(
-      {Key key,
-      @required this.isLoading,
-      @required this.button,
-      this.spinnerColor,
-      this.btnHorizontalPadding,
-      this.borderColor})
-      : assert(isLoading != null),
-        assert(button != null),
-        super(key: key);
-  Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
-    return Animator(
-      duration: Duration(milliseconds: 300),
-      cycles: 1,
-      builder: (context, animatorState, child) => Container(
-        margin: EdgeInsets.symmetric(
-            horizontal: _buttonAnimate(animatorState.value), vertical: 0),
-        child: Container(
-          width: double.infinity,
-          height: 50,
-          decoration: BoxDecoration(
-            border: Border.all(color: borderColor ?? Colors.black87),
-            borderRadius: BorderRadius.all(
-              Radius.circular(20.0),
-            ),
-          ),
-          child: Center(child: _buttonLabel(animatorState.value)),
-        ),
-      ),
-    );
+      
+    
+    return Container();
   }
 
-  ///calculate the login button padding for animation
-  double _buttonAnimate(double tween) {
-    btnHorizontalPadding = btnHorizontalPadding ?? (size.width - 300) / 2;
-    if (isLoading == true) {
-      return btnHorizontalPadding + (20 * tween);
-    } else {
-      return btnHorizontalPadding;
+
+  void _buttonPropertyNormalizer(){
+    if(buttonProperties.runtimeType == NormalButton){
+      _normalButtonModel = buttonProperties;
+    }
+
+    if(buttonProperties.runtimeType == ElasticButton){
+      _elasticButtonModel = buttonProperties;
+    }
+
+    if(buttonProperties.runtimeType == RollOverButton){
+      _rollOverButtonModel = buttonProperties;
+    }
+
+    if(buttonProperties.runtimeType == SlidingButton){
+      _slidingButtonModel = buttonProperties;
+    }
+
+    if(buttonProperties.runtimeType == SlashAwayButton){
+      _splashAwayButtonModel = buttonProperties;
     }
   }
 
-  Widget _buttonLabel(double tween) {
-    if (isLoading) {
-      return Container(
-        width: 20,
-        height: 20.0,
-        child: CircularProgressIndicator(
-          backgroundColor: spinnerColor ?? Colors.black,
-          strokeWidth: 2,
-          valueColor:
-              new AlwaysStoppedAnimation<Color>(borderColor ?? Colors.white),
-        ),
-      );
-    } else {
-      return button;
-    }
-  }
 }
